@@ -1,26 +1,96 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ffffff;
+  --pokemon-accent: #f51313;
+  --glass: rgba(255, 255, 255, 0.052);
+  --glass-strong: rgba(255, 255, 255, 0.125);
+  --border-soft: rgba(255, 255, 255, 0.203);
+  --dot-color: rgba(255, 255, 255, 0.051);
+  --dot-space: 22px;
+  --dot-size: 1.5px;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-pokemon-accent: var(--pokemon-accent);
+  --font-sans: var(--font-raleway);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 body {
-  background: var(--background);
+  background-color: #000000;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-raleway), "Raleway", sans-serif;
+  overflow: hidden;
+}
+
+.app-shell {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.app-frame {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(4, 6, 20, 0.85);
+  box-shadow: 0 8px 32px 0 rgba(6, 8, 28, 0.37);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(23, 20, 20, 0.37);
+  display: grid;
+  grid-template-rows: 10vh auto 10vh;
+  grid-template-columns: 1fr;
+}
+
+.app-content {
+  margin: 0 5rem;
+  border: 0.5px solid var(--border-soft);
+  border-top: none;
+  border-bottom: none;
+  height: 80vh;
+  background-color: var(--glass);
+  overflow: hidden;
+}
+
+.dot-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    radial-gradient(circle, var(--dot-color) var(--dot-size), transparent calc(var(--dot-size) + 1px)),
+    radial-gradient(circle, var(--dot-color) var(--dot-size), transparent calc(var(--dot-size) + 1px));
+  background-size: var(--dot-space) var(--dot-space);
+  background-position: 0 0, 11px 11px;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.125);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 768px) {
+  .app-content {
+    margin: 0 1rem;
+  }
 }
