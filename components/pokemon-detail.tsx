@@ -82,8 +82,8 @@ export function PokemonDetail({ id }: { id: string }) {
   }
 
   return (
-    <section className="relative h-full w-full p-6">
-      <div className="absolute left-4 top-4 z-20 w-80 rounded-2xl border border-white/10 bg-white/10 p-4 text-white backdrop-blur-md">
+    <section className="relative h-full w-full overflow-y-auto p-4 md:p-6">
+      <div className="z-20 w-full rounded-2xl border border-white/10 bg-white/10 p-4 text-white backdrop-blur-md md:absolute md:left-4 md:top-4 md:w-80">
         <h1 className="mb-2 text-2xl font-bold uppercase">{data.name}</h1>
         <h3 className="text-sm uppercase">Type: {data.types.join(" - ")}</h3>
         <h3 className="text-sm uppercase">Evolution: {data.evolutionLevel}</h3>
@@ -96,7 +96,7 @@ export function PokemonDetail({ id }: { id: string }) {
         </button>
       </div>
 
-      <div className="absolute bottom-24 left-4 z-20 w-80 rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur-md">
+      <div className="z-20 w-full rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur-md md:absolute md:bottom-24 md:left-4 md:w-80">
         <ul className="flex flex-col gap-4">
           {data.stats.map((stat) => (
             <li key={stat.name} className="flex items-center justify-end gap-4 text-xs uppercase text-white">
@@ -113,7 +113,7 @@ export function PokemonDetail({ id }: { id: string }) {
         </ul>
       </div>
 
-      <div className="absolute bottom-24 right-4 z-20 w-96 rounded-2xl border border-white/10 bg-white/10 p-4 text-white backdrop-blur-md">
+      <div className="z-20 w-full rounded-2xl border border-white/10 bg-white/10 p-4 text-white backdrop-blur-md md:absolute md:bottom-24 md:right-4 md:w-96">
         <ul className="flex flex-col gap-2 text-xs uppercase tracking-wider">
           <li className="grid grid-cols-[max-content_1fr] gap-3">
             <span className="text-right">Strong:</span>
@@ -149,23 +149,23 @@ export function PokemonDetail({ id }: { id: string }) {
       </div>
 
       <div className="relative z-10 flex h-full items-center justify-center">
-        <div className="relative flex h-96 w-96 items-center justify-center rounded-full border-2 border-pokemon-accent">
-          <div className="flex h-80 w-80 items-center justify-center rounded-full border-4 border-pokemon-accent">
+        <div className="relative flex h-64 w-64 items-center justify-center rounded-full border-2 border-pokemon-accent md:h-96 md:w-96">
+          <div className="flex h-56 w-56 items-center justify-center rounded-full border-4 border-pokemon-accent md:h-80 md:w-80">
             <Image
               src={getShinyArtworkUrl(data.id)}
               alt={data.name}
               width={288}
               height={288}
-              sizes="(max-width: 1024px) 80vw, 288px"
-              className="relative z-10 h-72 w-72 object-contain drop-shadow-2xl"
+              sizes="(max-width: 768px) 60vw, 288px"
+              className="relative z-10 h-48 w-48 object-contain drop-shadow-2xl md:h-72 md:w-72"
               onError={(event) => {
                 event.currentTarget.src = getOfficialArtworkUrl(data.id);
               }}
             />
           </div>
-          <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center gap-12">
-            <div className="h-112 w-1 rotate-45 bg-pokemon-accent" />
-            <div className="h-112 w-1 rotate-45 bg-pokemon-accent" />
+          <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center gap-8 md:gap-12">
+            <div className="h-72 w-1 rotate-45 bg-pokemon-accent md:h-112" />
+            <div className="h-72 w-1 rotate-45 bg-pokemon-accent md:h-112" />
           </div>
         </div>
       </div>
