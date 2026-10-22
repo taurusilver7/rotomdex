@@ -23,7 +23,7 @@ export function Navbar() {
   });
 
   return (
-    <nav className="grid h-full grid-cols-[5rem_auto_5rem] border-b border-white/10">
+    <nav className="grid h-full grid-cols-[3rem_auto_3rem] border-b border-white/10 md:grid-cols-[5rem_auto_5rem]">
       <div className="flex items-center justify-center">
         <Link href="/search" className="flex items-center gap-2 text-white">
           <Image src="/pokeball.png" alt="Pokedex" width={32} height={32} className="h-8 w-8" />

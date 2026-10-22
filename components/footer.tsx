@@ -23,8 +23,8 @@ export function Footer() {
   }, [pathname, setCurrentTab]);
 
   return (
-    <footer className="grid h-full grid-cols-[5rem_auto_5rem] border-t border-white/10" role="contentinfo">
-      <div className="flex items-center justify-center" />
+    <footer className="grid h-full grid-cols-1 border-t border-white/10 md:grid-cols-[5rem_auto_5rem]" role="contentinfo">
+      <div className="hidden items-center justify-center md:flex" />
       <div className="border-x border-white/10">
         {pathname.startsWith("/pokemon") && (
           <ul className="grid h-full grid-cols-4 list-none" role="tablist" aria-label="Pokemon detail tabs">
@@ -48,7 +48,7 @@ export function Footer() {
           </ul>
         )}
       </div>
-      <div className="flex items-center justify-center" />
+      <div className="hidden items-center justify-center md:flex" />
     </footer>
   );
 }
