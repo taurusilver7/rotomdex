@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import { Raleway, Geist_Mono } from "next/font/google";
 import { Toaster } from "sonner";
 import { QueryProvider } from "@/providers/query-provider";
@@ -19,14 +20,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: "Pokedex",
+	title: "Pokedex | V2.0",
 	description: "Pokemon encyclopedia migrated to Next.js",
 	icons: {
-		icon: "/pokeball.png",
+		icon: "pokeball.png",
 	},
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: ReactNode }) {
 	return (
 		<html
 			suppressHydrationWarning
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
 		>
 			<body className="min-h-full">
 				<div className="app-shell">
+					<div className="dot-grid" aria-hidden="true" />
 					<Background />
 					<div className="app-frame">
 						<Navbar />

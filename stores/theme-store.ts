@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { getContrastColor } from "@/lib/color-contrast";
 
 interface ThemeState {
   accentColor: string;
@@ -10,6 +11,7 @@ export const useThemeStore = create<ThemeState>((set) => ({
   setAccentColor: (color) => {
     if (typeof document !== "undefined") {
       document.documentElement.style.setProperty("--pokemon-accent", color);
+      document.documentElement.style.setProperty("--pokemon-accent-contrast", getContrastColor(color));
     }
     set({ accentColor: color });
   },
