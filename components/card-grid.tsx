@@ -27,8 +27,8 @@ export function CardGrid({ pokemons }: { pokemons: PokemonCardData[] }) {
   }
 
   return (
-    <div className="px-6 pb-8">
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-8">
+    <div className="mx-auto w-full px-4 pb-8 sm:px-6">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {enriched.map((pokemon, index) => (
           <PokemonCard key={pokemon.id} pokemon={pokemon} priority={index < 4} />
         ))}

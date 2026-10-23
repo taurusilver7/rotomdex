@@ -10,7 +10,7 @@ export function PokemonCard({ pokemon, priority = false }: { pokemon: PokemonCar
   const addPokemon = useCompareStore((state) => state.addPokemon);
 
   return (
-    <article className="relative flex w-62 flex-col items-center rounded-2xl bg-white/10 p-4 shadow-lg backdrop-blur-md transition hover:scale-105 hover:bg-white/20 hover:shadow-2xl">
+    <article className="relative flex w-full max-w-64 flex-col items-center rounded-2xl bg-white/10 p-4 shadow-lg backdrop-blur-md transition hover:scale-105 hover:bg-white/20 hover:shadow-2xl">
       <Link href={`/pokemon/${pokemon.id}`} className="block">
         <Image
           src={pokemon.image}
