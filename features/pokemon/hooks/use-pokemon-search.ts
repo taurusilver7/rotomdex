@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { usePokemonList } from "./use-pokemon-list";
 import { getOfficialArtworkUrl } from "@/lib/pokemon-images";
+import { filterPokemonResources } from "@/lib/excluded-pokemon";
 import type { PokemonCardData } from "@/types/pokemon";
 
 function createSeededRandom(seed: number) {
@@ -29,7 +30,7 @@ export function usePokemonSearch(searchTerm: string) {
 	const [shuffleSeed, setShuffleSeed] = useState(() => Math.floor(Math.random() * 2147483647));
 
 	const results = useMemo<PokemonCardData[]>(() => {
-		const items = listQuery.data?.results ?? [];
+		const items = filterPokemonResources(listQuery.data?.results ?? []);
 		const filtered = searchTerm.trim()
 			? items.filter((pokemon) => pokemon.name.includes(searchTerm.trim().toLowerCase()))
 			: items;

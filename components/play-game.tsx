@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Confetti from "react-confetti";
 import { usePokemonList } from "@/features/pokemon/hooks/use-pokemon-list";
+import { filterPokemonResources } from "@/lib/excluded-pokemon";
 import { usePokemonDetail } from "@/features/pokemon/hooks/use-pokemon-detail";
 import { Loader } from "@/components/loader";
 
@@ -44,7 +45,7 @@ export function PlayGame() {
 	const config = DIFFICULTY_CONFIG[difficulty];
 
 	const availableResults = useMemo(() => {
-		const results = listQuery.data?.results ?? [];
+		const results = filterPokemonResources(listQuery.data?.results ?? []);
 		if (!config.genOneOnly) return results;
 		return results.filter((pokemon) => {
 			const id = Number(pokemon.url.split("/").filter(Boolean).pop());

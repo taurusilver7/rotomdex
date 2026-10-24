@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useQueries } from "@tanstack/react-query";
 import { useCompareStore } from "@/stores/compare-store";
 import { getTypeIconUrl } from "@/lib/type-icons";
+import { isPokemonExcluded } from "@/lib/excluded-pokemon";
 import { pokemonTypes } from "@/lib/pokemon-type-data";
 import type { PokemonCardData } from "@/types/pokemon";
 
@@ -245,6 +246,7 @@ export function CompareView() {
 			if (!id) return;
 			const numericId = Number(id);
 			if (!Number.isFinite(numericId)) return;
+			if (isPokemonExcluded(numericId)) return;
 			if (compareQueue.some((pokemon) => pokemon.id === numericId)) return;
 
 			const response = await fetch(`/api/pokemon/${numericId}`);
