@@ -11,7 +11,7 @@ function getClientKey(request: NextRequest) {
   return `${ip}:${request.nextUrl.pathname}`;
 }
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   if (!request.nextUrl.pathname.startsWith("/api/")) {
     return NextResponse.next();
   }
