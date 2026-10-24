@@ -3,11 +3,16 @@ import { pokeApiFetch } from "@/lib/pokeapi";
 import { cachedFetch } from "@/lib/server-cache";
 import { cachedJsonResponse } from "@/lib/http-cache";
 import { getOfficialArtworkUrl } from "@/lib/pokemon-images";
+import { isPokemonExcluded } from "@/lib/excluded-pokemon";
 import { collectEvolution, getCurrentEvolutionLevel } from "@/lib/evolution";
 import type { PokemonDetail, PokemonEncounter, PokemonSpecies } from "@/types/pokemon";
 
 export async function GET(request: Request, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
+
+  if (isPokemonExcluded(id)) {
+    return NextResponse.json({ error: "Pokemon not found" }, { status: 404 });
+  }
 
   let pokemon: PokemonDetail;
   try {

@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { filterPokemonResources } from "@/lib/excluded-pokemon";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pokedex.example.com";
@@ -16,7 +17,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 		});
 		if (response.ok) {
 			const data = (await response.json()) as { results: { url: string }[] };
-			pokemonRoutes = data.results.map((pokemon) => {
+			pokemonRoutes = filterPokemonResources(data.results).map((pokemon) => {
 				const id = pokemon.url.split("/").filter(Boolean).pop();
 				return {
 					url: `${siteUrl}/pokemon/${id}`,
