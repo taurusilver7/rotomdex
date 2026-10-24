@@ -19,29 +19,29 @@ const geistMono = Geist_Mono({
 	subsets: ["latin"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pokedex.example.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://rotomdex-mu.vercel.app";
 
 export const metadata: Metadata = {
 	metadataBase: new URL(siteUrl),
 	title: {
-		default: "Pokedex | V2.0",
-		template: "%s | Pokedex V2.0",
+		default: "Rotomdex",
+		template: "%s | Rotomdex",
 	},
-	description: "Search, compare, and explore Pokemon stats, types, evolutions, and moves in a modern Next.js Pokedex.",
-	keywords: ["Pokemon", "Pokedex", "Pokemon stats", "Pokemon types", "Pokemon evolution"],
+	description: "Search, compare, and explore Pokemon stats, types, evolutions, and moves with Rotomdex.",
+	keywords: ["Pokemon", "Rotomdex", "Pokemon stats", "Pokemon types", "Pokemon evolution"],
 	openGraph: {
 		type: "website",
 		locale: "en_US",
 		url: "/",
-		siteName: "Pokedex V2.0",
-		title: "Pokedex | V2.0",
-		description: "Search, compare, and explore Pokemon stats, types, evolutions, and moves in a modern Next.js Pokedex.",
-		images: [{ url: "/pokeball.png", width: 512, height: 512, alt: "Pokedex" }],
+		siteName: "Rotomdex",
+		title: "Rotomdex",
+		description: "Search, compare, and explore Pokemon stats, types, evolutions, and moves with Rotomdex.",
+		images: [{ url: "/pokeball.png", width: 512, height: 512, alt: "Rotomdex" }],
 	},
 	twitter: {
 		card: "summary",
-		title: "Pokedex | V2.0",
-		description: "Search, compare, and explore Pokemon stats, types, evolutions, and moves in a modern Next.js Pokedex.",
+		title: "Rotomdex",
+		description: "Search, compare, and explore Pokemon stats, types, evolutions, and moves with Rotomdex.",
 		images: ["/pokeball.png"],
 	},
 	robots: {

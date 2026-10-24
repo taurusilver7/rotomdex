@@ -2,9 +2,9 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
 	return {
-		name: "Pokedex V2.0",
-		short_name: "Pokedex",
-		description: "Search, compare, and explore Pokemon in a modern Next.js Pokedex.",
+		name: "Rotomdex",
+		short_name: "Rotomdex",
+		description: "Search, compare, and explore Pokemon with Rotomdex.",
 		start_url: "/",
 		display: "standalone",
 		background_color: "#000000",
