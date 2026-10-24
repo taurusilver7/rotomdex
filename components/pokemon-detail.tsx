@@ -154,9 +154,9 @@ export function PokemonDetail({ id }: { id: string }) {
             <Image
               src={getOfficialArtworkUrl(data.id)}
               alt={data.name}
-              width={288}
-              height={288}
-              sizes="(max-width: 768px) 60vw, 288px"
+              width={300}
+              height={300}
+              sizes="(max-width: 768px) 60vw, 300px"
               className="relative z-10 h-48 w-48 object-contain drop-shadow-2xl md:h-72 md:w-72"
               onError={(event) => {
                 event.currentTarget.src = getOfficialArtworkUrl(data.id);

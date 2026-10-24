@@ -19,11 +19,37 @@ const geistMono = Geist_Mono({
 	subsets: ["latin"],
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pokedex.example.com";
+
 export const metadata: Metadata = {
-	title: "Pokedex | V2.0",
-	description: "Pokemon encyclopedia migrated to Next.js",
+	metadataBase: new URL(siteUrl),
+	title: {
+		default: "Pokedex | V2.0",
+		template: "%s | Pokedex V2.0",
+	},
+	description: "Search, compare, and explore Pokemon stats, types, evolutions, and moves in a modern Next.js Pokedex.",
+	keywords: ["Pokemon", "Pokedex", "Pokemon stats", "Pokemon types", "Pokemon evolution"],
+	openGraph: {
+		type: "website",
+		locale: "en_US",
+		url: "/",
+		siteName: "Pokedex V2.0",
+		title: "Pokedex | V2.0",
+		description: "Search, compare, and explore Pokemon stats, types, evolutions, and moves in a modern Next.js Pokedex.",
+		images: [{ url: "/pokeball.png", width: 512, height: 512, alt: "Pokedex" }],
+	},
+	twitter: {
+		card: "summary",
+		title: "Pokedex | V2.0",
+		description: "Search, compare, and explore Pokemon stats, types, evolutions, and moves in a modern Next.js Pokedex.",
+		images: ["/pokeball.png"],
+	},
+	robots: {
+		index: true,
+		follow: true,
+	},
 	icons: {
-		icon: "pokeball.png",
+		icon: "/pokeball.png",
 	},
 };
 

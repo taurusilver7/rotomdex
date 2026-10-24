@@ -6,6 +6,7 @@ interface CompareState {
   addPokemon: (pokemon: PokemonCardData) => void;
   removePokemon: (id: number) => void;
   clearCompare: () => void;
+  swapCompare: () => void;
 }
 
 export const useCompareStore = create<CompareState>((set) => ({
@@ -19,4 +20,9 @@ export const useCompareStore = create<CompareState>((set) => ({
   removePokemon: (id) =>
     set((state) => ({ compareQueue: state.compareQueue.filter((item) => item.id !== id) })),
   clearCompare: () => set({ compareQueue: [] }),
+  swapCompare: () =>
+    set((state) => {
+      if (state.compareQueue.length < 2) return state;
+      return { compareQueue: [state.compareQueue[1], state.compareQueue[0]] };
+    }),
 }));
