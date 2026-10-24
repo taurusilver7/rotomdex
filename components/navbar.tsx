@@ -27,7 +27,7 @@ export function Navbar() {
 				<Link href="/search" className="flex items-center gap-2 text-white">
 					<Image
 						src="/pokeball.png"
-						alt="Pokedex"
+						alt="Rotomdex"
 						width={32}
 						height={32}
 						className="h-8 w-8"
@@ -79,7 +79,7 @@ export function Navbar() {
 			<div className="flex items-center justify-center">
 				<Image
 					src="/pokeball.png"
-					alt="Pokedex"
+					alt="Rotomdex"
 					width={32}
 					height={32}
 					className="h-8 w-8 opacity-60"
