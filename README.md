@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Rotomdex
 
-## Getting Started
+A modern Pokémon companion built with Next.js. Search for Pokémon, explore their details, compare stats and type matchups, or test your knowledge in a silhouette-guessing game.
 
-First, run the development server:
+![Rotomdex detail screen](./public/readme.png)
+
+## Features
+
+- Search and browse Pokémon, with shuffle and load-more controls.
+- Explore a Pokémon's types, base stats, strengths, weaknesses, evolutions, locations, and moves.
+- Compare up to two Pokémon side by side.
+- Play a silhouette-guessing game with difficulty settings, hints, and scoring.
+- Fetch Pokémon data through cached requests and Next.js API routes backed by [PokéAPI](https://pokeapi.co/).
+
+## Built with
+
+- [Next.js](https://nextjs.org/) App Router and React
+- TypeScript
+- Tailwind CSS v4
+- [TanStack Query](https://tanstack.com/query/latest) for server state
+- [Zustand](https://zustand.docs.pmnd.rs/) for lightweight client state
+
+## Getting started
+
+### Requirements
+
+- Node.js 20.9 or later
+- npm
+
+### Run locally
 
 ```bash
+git clone https://github.com/taurusilver7/rotomdex.git
+cd rotomdex
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Available scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the development server |
+| `npm run lint` | Run ESLint |
+| `npm run build` | Create a production build |
+| `npm run start` | Serve the production build |
 
-## Learn More
+Set `NEXT_PUBLIC_SITE_URL` to your deployed site's origin so generated metadata and social previews use the correct URL.
 
-To learn more about Next.js, take a look at the following resources:
+## Project structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```text
+app/          App Router pages and API route handlers
+components/   Shared interface and interactive components
+features/     Pokémon queries and feature-specific hooks
+lib/          PokéAPI, caching, and Pokémon utilities
+stores/       Zustand stores for comparison and UI state
+public/       Static images and type icons
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Data and attribution
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Pokémon data is provided by [PokéAPI](https://pokeapi.co/). Pokémon names, characters, and related artwork are the property of their respective owners. This is an independent fan project and is not affiliated with or endorsed by Nintendo, Game Freak, or The Pokémon Company.
